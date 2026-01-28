@@ -5,16 +5,16 @@ export function Header() {
   const { name, about, social } = getSiteConfig();
 
   return (
-    <header className="border-b border-[var(--border)] bg-[var(--card-bg)]/50 backdrop-blur-sm">
-      <div className="mx-auto max-w-3xl px-6 py-10 text-center">
+    <header className="flex h-[20vh] min-h-[180px] max-h-[250px] items-center border-b border-[var(--border)] bg-[var(--card-bg)]/50 backdrop-blur-sm">
+      <div className="mx-auto w-full max-w-3xl px-6 py-4 text-center">
         <SocialIcons links={social} />
         {name && (
-          <h1 className="mt-6 text-2xl font-semibold tracking-tight text-[var(--foreground)] sm:text-3xl">
+          <h1 className="mt-3 text-xl font-semibold tracking-tight text-[var(--foreground)] sm:text-2xl">
             {name}
           </h1>
         )}
-        <div className="mt-4 text-[var(--muted)]">
-          <p className="whitespace-pre-line text-left text-base leading-relaxed sm:text-center">
+        <div className="mt-2 text-[var(--muted)]">
+          <p className="line-clamp-2 whitespace-pre-line text-left text-sm leading-relaxed sm:text-center sm:line-clamp-none">
             {about}
           </p>
         </div>
