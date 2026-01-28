@@ -1,0 +1,12 @@
+[
+  {
+    "id": "project-1",
+    "name": "Project Name",
+    "description": "1–2 lines on what this is and the impact.",
+    "tags": ["Next.js", "TypeScript"],
+    "links": [
+      { "label": "Live", "url": "https://example.com" },
+      { "label": "GitHub", "url": "https://github.com/yourhandle/repo" }
+    ]
+  }
+]
