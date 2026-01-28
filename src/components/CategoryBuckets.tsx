@@ -46,7 +46,7 @@ function BucketCard({
   const count = category.posts.length;
 
   return (
-    <div className="flex-1 min-w-[300px] max-w-md overflow-hidden rounded-xl border border-[var(--border)] bg-[var(--card-bg)] shadow-sm transition hover:shadow-md">
+    <div className="w-full overflow-hidden rounded-xl border border-[var(--border)] bg-[var(--card-bg)] shadow-sm transition hover:shadow-md">
       <button
         type="button"
         onClick={onToggle}
@@ -113,13 +113,13 @@ export function CategoryBuckets({ categories }: { categories: Category[] }) {
 
   return (
     <section
-      className="mx-auto w-[80%] max-w-6xl px-6 py-8"
+      className="mx-auto w-full max-w-6xl px-6 py-8"
       aria-label="Writing by category"
     >
       <h2 className="mb-5 text-center text-[0.72rem] font-medium text-[var(--muted)] underline decoration-[var(--border)] underline-offset-4">
         My Learnings and Thoughts
       </h2>
-      <div className="flex flex-row flex-wrap gap-4">
+      <div className="grid gap-4 sm:grid-cols-2">
         {categories.map((category, index) => {
           const isLast = index === categories.length - 1;
           const isCenterLast = isLast && isOddCount;
@@ -132,8 +132,11 @@ export function CategoryBuckets({ categories }: { categories: Category[] }) {
           );
           if (isCenterLast) {
             return (
-              <div key={category.id} className="flex basis-full justify-center">
-                {bucketCard}
+              <div
+                key={category.id}
+                className="flex justify-center sm:col-span-2"
+              >
+                <div className="w-full max-w-md">{bucketCard}</div>
               </div>
             );
           }
