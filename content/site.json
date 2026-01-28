@@ -1,5 +1,6 @@
 {
   "name": "Your Name",
+  "image": "/profile.jpg",
   "about": "A short bio or about section. You can add multiple paragraphs by using line breaks, or keep it concise. This is where you share who you are and what you do.",
   "social": [
     { "id": "twitter", "label": "Twitter / X", "url": "https://twitter.com/yourhandle", "icon": "twitter" },

@@ -40,12 +40,12 @@ export function SocialIcons({ links }: { links: SocialLink[] }) {
             href={link.url}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex h-10 w-10 items-center justify-center rounded-lg border border-[var(--border)] bg-[var(--card-bg)] text-[var(--muted)] transition hover:border-[var(--accent)] hover:text-[var(--accent)] hover:bg-[var(--accent)]/5"
+            className="flex h-[26px] w-[26px] items-center justify-center rounded-lg border border-[var(--border)] bg-[var(--card-bg)] text-[var(--muted)] transition hover:border-[var(--accent)] hover:text-[var(--accent)] hover:bg-[var(--accent)]/5"
             title={link.label}
             aria-label={link.label}
           >
             <svg
-              className="h-5 w-5"
+              className="h-[13px] w-[13px]"
               fill="currentColor"
               viewBox={viewBox}
               aria-hidden

@@ -15,6 +15,12 @@
         "url": "https://yoursubstack.substack.com/p/another-post",
         "date": "2024-01-01",
         "excerpt": "Optional excerpt for the card."
+      },
+      {
+        "title": "Answering product strategy questions",
+        "url": "https://yoursubstack.substack.com/p/product-strategy-questions",
+        "date": "2023-12-10",
+        "excerpt": "A framework for tackling strategy questions in PM interviews."
       }
     ]
   },
@@ -28,6 +34,87 @@
         "url": "https://yoursubstack.substack.com/p/shipping-fast",
         "date": "2023-12-20",
         "excerpt": "Optional."
+      }
+    ]
+  },
+  {
+    "id": "product-strategy",
+    "name": "Product Strategy",
+    "description": "Thoughts on product vision, roadmap, and strategic decision-making.",
+    "posts": [
+      {
+        "title": "Defining product vision",
+        "url": "https://yoursubstack.substack.com/p/product-vision",
+        "date": "2024-02-01",
+        "excerpt": "How to create and communicate a clear product vision."
+      },
+      {
+        "title": "Building a product roadmap",
+        "url": "https://yoursubstack.substack.com/p/product-roadmap",
+        "date": "2024-01-25",
+        "excerpt": "Strategies for creating effective product roadmaps."
+      },
+      {
+        "title": "Prioritization frameworks",
+        "url": "https://yoursubstack.substack.com/p/prioritization-frameworks",
+        "date": "2024-01-15",
+        "excerpt": "Comparing different prioritization methods for product decisions."
+      },
+      {
+        "title": "Market positioning strategies",
+        "url": "https://yoursubstack.substack.com/p/market-positioning",
+        "date": "2024-01-05",
+        "excerpt": "How to position your product in competitive markets."
+      },
+      {
+        "title": "Go-to-market planning",
+        "url": "https://yoursubstack.substack.com/p/go-to-market",
+        "date": "2023-12-20",
+        "excerpt": "Essential elements of a successful go-to-market strategy."
+      },
+      {
+        "title": "Product-market fit indicators",
+        "url": "https://yoursubstack.substack.com/p/product-market-fit",
+        "date": "2023-12-10",
+        "excerpt": "Signs that you've achieved product-market fit."
+      },
+      {
+        "title": "Strategic pivots and when to make them",
+        "url": "https://yoursubstack.substack.com/p/strategic-pivots",
+        "date": "2023-12-01",
+        "excerpt": "Understanding when and how to pivot your product strategy."
+      }
+    ]
+  },
+  {
+    "id": "user-research",
+    "name": "User Research",
+    "description": "Methods and insights from talking to users and understanding their needs.",
+    "posts": [
+      {
+        "title": "Conducting effective user interviews",
+        "url": "https://yoursubstack.substack.com/p/user-interviews",
+        "date": "2024-01-20",
+        "excerpt": "Best practices for getting valuable insights from user conversations."
+      },
+      {
+        "title": "Analyzing user feedback",
+        "url": "https://yoursubstack.substack.com/p/user-feedback",
+        "date": "2024-01-10",
+        "excerpt": "Turning user feedback into actionable product improvements."
+      }
+    ]
+  },
+  {
+    "id": "team-leadership",
+    "name": "Team Leadership",
+    "description": "Building and leading product teams effectively.",
+    "posts": [
+      {
+        "title": "Hiring your first PM",
+        "url": "https://yoursubstack.substack.com/p/hiring-pm",
+        "date": "2023-12-15",
+        "excerpt": "What to look for when building your product team."
       }
     ]
   }

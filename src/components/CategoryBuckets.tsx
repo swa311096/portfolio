@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { Fragment, useState } from "react";
 import type { Category, SubstackPost } from "@/lib/config";
 
 function PostCard({ post }: { post: SubstackPost }) {
@@ -18,16 +18,16 @@ function PostCard({ post }: { post: SubstackPost }) {
       rel="noopener noreferrer"
       className="group flex flex-col gap-1 rounded-lg border border-[var(--border)] bg-[var(--card-bg)] p-4 transition hover:border-[var(--accent)] hover:shadow-md"
     >
-      <span className="text-xs text-[var(--muted)]">{formatDate(post.date)}</span>
-      <span className="font-medium text-[var(--foreground)] group-hover:text-[var(--accent)]">
+      <span className="text-[0.48rem] text-[var(--muted)]">{formatDate(post.date)}</span>
+      <span className="text-[0.64rem] font-medium text-[var(--foreground)] group-hover:text-[var(--accent)]">
         {post.title}
       </span>
       {post.excerpt && (
-        <span className="line-clamp-2 text-sm text-[var(--muted)]">
+        <span className="line-clamp-2 text-[0.56rem] text-[var(--muted)]">
           {post.excerpt}
         </span>
       )}
-      <span className="mt-1 text-sm text-[var(--accent)] opacity-0 transition group-hover:opacity-100">
+      <span className="mt-1 text-[0.56rem] text-[var(--accent)] opacity-0 transition group-hover:opacity-100">
         Read on Substack →
       </span>
     </a>
@@ -46,7 +46,7 @@ function BucketCard({
   const count = category.posts.length;
 
   return (
-    <div className="overflow-hidden rounded-xl border border-[var(--border)] bg-[var(--card-bg)] shadow-sm transition hover:shadow-md">
+    <div className="flex-1 min-w-[300px] max-w-md overflow-hidden rounded-xl border border-[var(--border)] bg-[var(--card-bg)] shadow-sm transition hover:shadow-md">
       <button
         type="button"
         onClick={onToggle}
@@ -56,16 +56,16 @@ function BucketCard({
         id={`bucket-${category.id}`}
       >
         <div className="min-w-0 flex-1">
-          <h2 className="font-semibold text-[var(--foreground)]">
+          <h2 className="text-[0.64rem] font-semibold text-[var(--foreground)]">
             {category.name}
           </h2>
           {category.description && (
-            <p className="mt-0.5 truncate text-sm text-[var(--muted)]">
+            <p className="mt-0.5 line-clamp-2 text-[0.56rem] text-[var(--muted)]">
               {category.description}
             </p>
           )}
         </div>
-        <span className="shrink-0 rounded-full bg-[var(--accent)]/10 px-3 py-1 text-sm font-medium text-[var(--accent)]">
+        <span className="shrink-0 rounded-full bg-[var(--accent)]/10 px-3 py-1 text-[0.56rem] font-medium text-[var(--accent)]">
           {count} {count === 1 ? "post" : "posts"}
         </span>
         <svg
@@ -105,6 +105,7 @@ function BucketCard({
 
 export function CategoryBuckets({ categories }: { categories: Category[] }) {
   const [openId, setOpenId] = useState<string | null>(null);
+  const isOddCount = categories.length % 2 !== 0;
 
   const handleToggle = (id: string) => {
     setOpenId((prev) => (prev === id ? null : id));
@@ -112,21 +113,36 @@ export function CategoryBuckets({ categories }: { categories: Category[] }) {
 
   return (
     <section
-      className="mx-auto max-w-4xl px-6 py-10"
+      className="mx-auto w-[80%] max-w-6xl px-6 py-8"
       aria-label="Writing by category"
     >
-      <h2 className="mb-6 text-center text-lg font-medium text-[var(--muted)]">
-        Substack writing by topic
+      <h2 className="mb-5 text-center text-[0.72rem] font-medium text-[var(--muted)] underline decoration-[var(--border)] underline-offset-4">
+        My Learnings and Thoughts
       </h2>
-      <div className="flex flex-col gap-4">
-        {categories.map((category) => (
-          <BucketCard
-            key={category.id}
-            category={category}
-            isOpen={openId === category.id}
-            onToggle={() => handleToggle(category.id)}
-          />
-        ))}
+      <div className="flex flex-row flex-wrap gap-4">
+        {categories.map((category, index) => {
+          const isLast = index === categories.length - 1;
+          const isCenterLast = isLast && isOddCount;
+          const bucketCard = (
+            <BucketCard
+              category={category}
+              isOpen={openId === category.id}
+              onToggle={() => handleToggle(category.id)}
+            />
+          );
+          if (isCenterLast) {
+            return (
+              <div key={category.id} className="flex basis-full justify-center">
+                {bucketCard}
+              </div>
+            );
+          }
+          return (
+            <Fragment key={category.id}>
+              {bucketCard}
+            </Fragment>
+          );
+        })}
       </div>
     </section>
   );

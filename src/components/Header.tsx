@@ -2,21 +2,33 @@ import { getSiteConfig } from "@/lib/config";
 import { SocialIcons } from "./SocialIcons";
 
 export function Header() {
-  const { name, about, social } = getSiteConfig();
+  const { name, image, about, social } = getSiteConfig();
 
   return (
-    <header className="flex h-[20vh] min-h-[180px] max-h-[250px] items-center border-b border-[var(--border)] bg-[var(--card-bg)]/50 backdrop-blur-sm">
-      <div className="mx-auto w-full max-w-3xl px-6 py-4 text-center">
-        <SocialIcons links={social} />
-        {name && (
-          <h1 className="mt-3 text-xl font-semibold tracking-tight text-[var(--foreground)] sm:text-2xl">
-            {name}
-          </h1>
-        )}
-        <div className="mt-2 text-[var(--muted)]">
-          <p className="line-clamp-2 whitespace-pre-line text-left text-sm leading-relaxed sm:text-center sm:line-clamp-none">
-            {about}
-          </p>
+    <header className="flex h-[16vh] min-h-[144px] max-h-[200px] items-center border-b border-[var(--border)] bg-[var(--card-bg)]/50 backdrop-blur-sm shadow-md">
+      <div className="w-full px-6 py-3 text-left flex flex-col justify-between h-full">
+        <div className="flex items-center gap-4">
+          <div className="shrink-0 ml-2">
+            {image ? (
+              <img
+                src={image}
+                alt={name || "Profile picture"}
+                className="h-[83px] w-[83px] rounded-full border-2 border-[var(--border)] object-cover"
+              />
+            ) : (
+              <div className="h-[83px] w-[83px] rounded-full border-2 border-[var(--border)] bg-[var(--card-bg)] flex items-center justify-center">
+                <span className="text-[0.75rem] text-[var(--muted)]">Photo</span>
+              </div>
+            )}
+          </div>
+          <div className="flex-1 text-[var(--muted)] min-w-0 -mt-2">
+            <p className="whitespace-pre-line text-left text-[0.6rem] leading-relaxed sm:text-[0.66rem]">
+              {about}
+            </p>
+          </div>
+        </div>
+        <div className="mt-2">
+          <SocialIcons links={social} />
         </div>
       </div>
     </header>
