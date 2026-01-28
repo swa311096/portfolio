@@ -1,12 +1,32 @@
 [
   {
     "id": "project-1",
-    "name": "Project Name",
+    "name": "Project Name 1",
     "description": "1–2 lines on what this is and the impact.",
     "tags": ["Next.js", "TypeScript"],
     "links": [
       { "label": "Live", "url": "https://example.com" },
-      { "label": "GitHub", "url": "https://github.com/yourhandle/repo" }
+      { "label": "GitHub", "url": "https://github.com/yourhandle/repo-1" }
+    ]
+  },
+  {
+    "id": "project-2",
+    "name": "Project Name 2",
+    "description": "Another short description to test layout.",
+    "tags": ["React", "UI"],
+    "links": [
+      { "label": "Live", "url": "https://example.com/2" },
+      { "label": "GitHub", "url": "https://github.com/yourhandle/repo-2" }
+    ]
+  },
+  {
+    "id": "project-3",
+    "name": "Project Name 3",
+    "description": "Third dummy project to fill the row.",
+    "tags": ["Design", "Prototype"],
+    "links": [
+      { "label": "Live", "url": "https://example.com/3" },
+      { "label": "GitHub", "url": "https://github.com/yourhandle/repo-3" }
     ]
   }
 ]

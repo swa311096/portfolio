@@ -113,7 +113,7 @@ export function CategoryBuckets({ categories }: { categories: Category[] }) {
 
   return (
     <section
-      className="mx-auto max-w-6xl px-6 py-10 sm:px-10 lg:px-14"
+      className="mx-auto w-[80%] max-w-6xl px-6 pt-3 pb-10 sm:px-10 lg:px-14"
       aria-label="Writing by category"
     >
       <h2 className="mb-5 text-center text-[0.72rem] font-medium text-[var(--muted)] underline decoration-[var(--border)] underline-offset-4">
