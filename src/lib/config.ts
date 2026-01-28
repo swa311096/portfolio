@@ -24,6 +24,7 @@ export type Category = {
 
 export type SiteConfig = {
   name: string;
+  image?: string;
   about: string;
   social: SocialLink[];
 };
