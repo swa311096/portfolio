@@ -1,6 +1,6 @@
 "use client";
 
-import { Fragment, useState } from "react";
+import { useState } from "react";
 import type { Category, SubstackPost } from "@/lib/config";
 
 function PostCard({ post }: { post: SubstackPost }) {
@@ -46,14 +46,17 @@ function BucketCard({
   const count = category.posts.length;
 
   return (
-    <div className="w-full overflow-hidden rounded-xl border border-[var(--border)] bg-[var(--card-bg)] shadow-sm transition hover:shadow-md">
+    <div
+      className="w-full overflow-hidden rounded-xl border border-[var(--border)] bg-[var(--card-bg)] shadow-sm transition hover:shadow-md"
+      id={`bucket-${category.id}`}
+    >
       <button
         type="button"
         onClick={onToggle}
         className="flex w-full items-center justify-between gap-4 px-5 py-4 text-left transition hover:bg-[var(--background)]/50"
         aria-expanded={isOpen}
         aria-controls={`posts-${category.id}`}
-        id={`bucket-${category.id}`}
+        id={`bucket-${category.id}-header`}
       >
         <div className="min-w-0 flex-1">
           <h2 className="text-[0.64rem] font-semibold text-[var(--foreground)]">
@@ -88,7 +91,7 @@ function BucketCard({
       <div
         id={`posts-${category.id}`}
         role="region"
-        aria-labelledby={`bucket-${category.id}`}
+        aria-labelledby={`bucket-${category.id}-header`}
         className={`border-t border-[var(--border)] bg-[var(--background)]/30 transition-all ${
           isOpen ? "block" : "hidden"
         }`}
@@ -105,7 +108,6 @@ function BucketCard({
 
 export function CategoryBuckets({ categories }: { categories: Category[] }) {
   const [openId, setOpenId] = useState<string | null>(null);
-  const isOddCount = categories.length % 2 !== 0;
 
   const handleToggle = (id: string) => {
     setOpenId((prev) => (prev === id ? null : id));
@@ -119,33 +121,15 @@ export function CategoryBuckets({ categories }: { categories: Category[] }) {
       <h2 className="mb-5 text-center text-[0.72rem] font-medium text-[var(--muted)] underline decoration-[var(--border)] underline-offset-4">
         My Learnings and Thoughts
       </h2>
-      <div className="grid gap-4 sm:grid-cols-2">
-        {categories.map((category, index) => {
-          const isLast = index === categories.length - 1;
-          const isCenterLast = isLast && isOddCount;
-          const bucketCard = (
-            <BucketCard
-              category={category}
-              isOpen={openId === category.id}
-              onToggle={() => handleToggle(category.id)}
-            />
-          );
-          if (isCenterLast) {
-            return (
-              <div
-                key={category.id}
-                className="flex justify-center sm:col-span-2"
-              >
-                <div className="w-full max-w-md">{bucketCard}</div>
-              </div>
-            );
-          }
-          return (
-            <Fragment key={category.id}>
-              {bucketCard}
-            </Fragment>
-          );
-        })}
+      <div className="flex flex-col gap-4">
+        {categories.map((category) => (
+          <BucketCard
+            key={category.id}
+            category={category}
+            isOpen={openId === category.id}
+            onToggle={() => handleToggle(category.id)}
+          />
+        ))}
       </div>
     </section>
   );

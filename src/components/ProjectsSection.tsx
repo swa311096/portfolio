@@ -18,19 +18,6 @@ function ProjectCard({ project }: { project: Project }) {
         </div>
       </div>
 
-      {project.tags?.length ? (
-        <div className="mt-3 flex flex-wrap gap-2">
-          {project.tags.map((t) => (
-            <span
-              key={t}
-              className="rounded-full border border-[var(--border)] bg-[var(--background)]/30 px-2.5 py-1 text-[0.55rem] text-[var(--muted)]"
-            >
-              {t}
-            </span>
-          ))}
-        </div>
-      ) : null}
-
       {project.links?.length ? (
         <div className="mt-4 flex flex-wrap gap-2">
           {project.links.map((l) => (
