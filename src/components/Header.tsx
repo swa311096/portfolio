@@ -5,8 +5,8 @@ export function Header() {
   const { name, image, about, social } = getSiteConfig();
 
   return (
-    <header className="flex h-[16vh] min-h-[144px] max-h-[200px] items-center border-b border-[var(--border)] bg-[var(--card-bg)]/50 backdrop-blur-sm shadow-md">
-      <div className="w-full px-6 py-3 text-center flex flex-col justify-between items-center h-full">
+    <header className="flex h-[24vh] min-h-[220px] max-h-[320px] items-center border-b border-[var(--border)] bg-[var(--card-bg)]/50 backdrop-blur-sm shadow-md">
+      <div className="mx-auto w-[80%] max-w-6xl px-6 py-6 sm:px-10 lg:px-14 text-center flex flex-col justify-between items-center h-full">
         <div className="flex items-center justify-center gap-4">
           <div className="shrink-0">
             {image ? (

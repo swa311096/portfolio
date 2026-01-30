@@ -40,7 +40,7 @@ function ProjectCard({ project }: { project: Project }) {
 export function ProjectsSection({ projects }: { projects: Project[] }) {
   return (
     <section
-      className="mx-auto w-[80%] max-w-6xl px-6 pt-5 pb-12 sm:px-10 lg:px-14"
+      className="pt-5 pb-12"
       aria-label="Projects"
     >
       <h2 className="mb-5 text-center text-[0.72rem] font-medium text-[var(--muted)] underline decoration-[var(--border)] underline-offset-4">

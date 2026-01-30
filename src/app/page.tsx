@@ -10,8 +10,10 @@ export default function Home() {
   return (
     <main className="min-h-screen">
       <Header />
-      <ProjectsSection projects={projects} />
-      <CategoryBuckets categories={categories} />
+      <div className="mx-auto w-[80%] max-w-6xl px-6 sm:px-10 lg:px-14">
+        <ProjectsSection projects={projects} />
+        <CategoryBuckets categories={categories} />
+      </div>
     </main>
   );
 }
